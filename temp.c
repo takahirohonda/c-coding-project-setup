@@ -12,7 +12,6 @@ int main() {
   // Equivalent to sum += x[i]
       sum += *(x+i);
   }
-
   printf("Sum = %d", sum);
   
 }
