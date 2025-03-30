@@ -1,18 +1,17 @@
 #include <stdio.h>
 
 int main() {
-  int i, x[6], sum = 0;
-  
-  printf("Enter 6 numbers: ");
+  FILE *file = fopen("./docs/exercise-basic.md", "r");
 
-  for(i = 0; i < 6; ++i) {
-    // Equivalent to scanf("%d", &x[i]);
-      scanf("%d", x+i);
-
-  // Equivalent to sum += x[i]
-      sum += *(x+i);
+  if(!file) {
+    perror("no file");
+    return 1;
   }
 
-  printf("Sum = %d", sum);
-  
+  char buffer[100];
+  while(fgets(buffer, sizeof(buffer), file)) {
+    printf("%s", buffer);
+  }
+
+  fclose(file);
 }
